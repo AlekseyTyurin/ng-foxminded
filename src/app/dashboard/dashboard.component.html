@@ -1,0 +1,33 @@
+<div class="layout">
+  <section class="inner">
+    <ul class="grid">
+        <p>{{showMessage}}</p>
+      <li class="grid-tile" *ngFor="let bike of bikes">
+        <div class="item">
+            <img class="item-img" [src]="bike.bikeImageUrl">
+          <div class="item-pnl">
+            <div class="pnl-wrapper">
+              <div class="pnl-description">
+                <span class="pnl-label"
+                      style="color: #79aefe; font-weight: bold">
+                  {{bike.bikeName | uppercase}}</span>
+                <div
+                        style="font-size: 10px; line-height: 120%; text-align: justify; color: #323232;">{{bike.description}}
+
+              </div>
+                  <!--<p *ngIf="bike.bikeReview != null" style="color: orange;">Likes: {{bike.bikeReview}}</p>-->
+                  <!--<p *ngIf="bike.bikeReview == null" style="color: grey;">Likes: 0</p>-->
+                <app-like [reviews]="bike.bikeReviews" (notify)="onLikeClicked($event)"></app-like>
+
+              <hr>
+              <span class="pnl-price">{{bike.bikePrice | currency: 'UAH': true }}</span>
+            </div>
+          </div>
+
+        </div>
+</div>
+
+</li>
+</ul>
+</section>
+</div>

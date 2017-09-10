@@ -1,0 +1,19 @@
+<form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+
+    <input type="email"
+           class="form-control  text-proxima-regular-16 font-color-dark"
+           name="email" [(ngModel)]="model.email"
+           #email="ngModel"
+           id="inputEmail"
+           placeholder="Email" required>
+    <label for="inputEmail" class="text-proxima-regular-14 font-color-grey" style="bottom: 61px;">Email
+      address</label>
+    <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+
+      <button [disabled]="loading" class="btn btn-warning btn-half pull-right text-proxima-bold-16 btn-lg">LOGIN
+      </button>
+  </div>
+</form>
+
